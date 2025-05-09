@@ -1,0 +1,234 @@
+/* Algemeen */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+}
+
+/* Container met sidebar en hoofdinhoud */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background-color: #1a1a1a;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profiel-foto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.sidebar h1 {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.sidebar p {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar a {
+  color: #1e90ff;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+/* Hoofdinhoud */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+.project {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-left: 4px solid #1e90ff;
+  border-radius: 6px;
+}
+
+/* Sociale links met icoontjes */
+.links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+
+.links .social-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #1e1e1e;
+  padding: 4px;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+  object-fit: contain;
+}
+
+.links .social-icon:hover {
+  background-color: #1e90ff;
+}
+
+/* Collapse animatie via <details> (optioneel) */
+details.collapsible {
+  background-color: #1a1a1a;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+details.collapsible summary {
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+details.collapsible summary::marker {
+  display: none;
+}
+
+details.collapsible[open] summary::after {
+  content: "▲";
+  position: absolute;
+  right: 0;
+  transition: transform 0.3s ease;
+}
+
+details.collapsible summary::after {
+  content: "▼";
+  position: absolute;
+  right: 0;
+  transition: transform 0.3s ease;
+}
+
+.collapsible .content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.collapsible[open] .content {
+  max-height: 1000px;
+}
+
+/* Collapse animatie via JS-knop */
+.collapsible-section {
+  margin-bottom: 2rem;
+  background-color: #1a1a1a;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  color: #f2f2f2;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  padding: 0;
+}
+
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.collapsible-content.open {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* Project-afbeeldingen met popup-functionaliteit */
+.project-images {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.project-images img {
+  width: calc(33.333% - 0.67rem);
+  border-radius: 6px;
+  object-fit: contain;
+  height: auto;
+  max-height: 250px;
+  background-color: #111;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.project-images img:hover {
+  transform: scale(1.02);
+}
+
+/* Afbeelding-popup (lightbox) */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #f2f2f2;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.close:hover {
+  color: #1e90ff;
+}

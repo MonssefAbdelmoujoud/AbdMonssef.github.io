@@ -1,4 +1,108 @@
 <!DOCTYPE html>
+<html lang="nl" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mijn Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<script>
+  function openPopup(img) {
+    const popup = document.getElementById("image-popup");
+    const popupImg = document.getElementById("popup-img");
+    popup.style.display = "flex";
+    popupImg.src = img.src;
+  }
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  function closePopup() {
+    document.getElementById("image-popup").style.display = "none";
+  }
+
+  // Sluiten met ESC of klik buiten afbeelding
+  window.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closePopup();
+  });
+
+  document.getElementById("image-popup").addEventListener("click", function(e) {
+    if (e.target.id === "image-popup") closePopup();
+  });
+</script>
+
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <img src="Images/Monssef.png" alt="Mijn foto" class="profiel-foto">
+      <h1>Monssef Abdelmoujoud</h1>
+      <p>Beginnend developer</p>
+      <p><strong>Email:</strong><br><a href="mailto:abd.monssef@gmail.com">abd.monssef@gmail.com</a></p>
+      <p><strong>Links:</strong></p>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/monssef-abdelmoujoud-312694261/" target="_blank" aria-label="LinkedIn">
+          <img src="Images/linkedin.png" alt="LinkedIn" class="social-icon" />
+        </a>
+        <a href="https://github.com/MonssefAbdelmoujoud" target="_blank" aria-label="GitHub">
+          <img src="Images/github.png" alt="GitHub" class="social-icon" />
+        </a>
+</div>
+
+    </aside>
+
+    <main class="main-content">
+      <section>
+        <h2>Welkom</h2>
+        <p>Welkom op mijn portfolio</p>
+        <p>Ik ben Monssef Abdelmoujoud, een afgestudeerde student van de graduaatopleiding Programmeren aan Vives Hogeschool in Kortrijk. Met deze website wil ik mezelf voorstellen aan de buitenwereld, werk zoeken, en vooral laten zien waartoe ik in staat ben.</p>
+        <p>Ik ben sociaal, leergierig, en ik hou van een goede uitdaging, het is precies dat wat me motiveert om te blijven groeien. De wereld van development is gigantisch, maar ik voel me er thuis. Vooral het werken met API’s vind ik ontzettend boeiend.</p>
+      </section>
+
+      <section class="collapsible-section">
+        <button class="toggle-button">Over mij ▼</button>
+        <div class="collapsible-content">
+          <p>Mijn interesse in programmeren is ontstaan binnen mijn vriendengroep, die vol zit met developers. Aangestoken door hun enthousiasme begon ik via zelfstudie aan Python, waarna ik de overstap maakte naar C#. Sindsdien ben ik niet meer gestopt.</p>
+          <p>Onlangs heb ik mijn eindwerk afgerond voor het laatste jaar van mijn opleiding. Hoewel ik nog niet precies weet welke richting ik op lange termijn wil uitgaan, weet ik wél dat ik ervaring wil opdoen en een steeds betere programmeur wil worden.</p>
+          <p>Naast programmeren hou ik van een beetje ontspanning: ik speel graag het kaartenspel Yu-Gi-Oh, ben geïnteresseerd in auto’s, en help af en toe mijn vader in zijn garage. Die combinatie van techniek, creativiteit en plezier typeert wie ik ben.</p>
+        </div>
+      </section>
+
+
+
+      <section>
+        <h2>Projecten</h2>
+        <div class="project">
+          <h3>AI-powered FAQ Chatbot Widget</h3>
+          <p>Deze chatbot widget werd ontwikkeld tijdens mijn stage bij Flagstone en biedt gebruikers een slimme manier om veelgestelde vragen (FAQ) te raadplegen of eigen vragen te stellen via een AI-assistent.</p>
+          <p>De front-end werd opgebouwd met HTML, CSS en JavaScript (zonder frameworks) en bevat een responsieve, zwevende interface met live zoekfiltering, dynamische DOM-updates en vloeiende overgangen.</p>
+          <p>De back-end is ontwikkeld in ASP.NET Core Web API, waarbij FAQ-data wordt opgehaald en gebruikersvragen doorgestuurd worden naar de OpenAI API voor AI-gegenereerde antwoorden. De widget leest gegevens uit een SQL Server-database, met Entity Framework Core als ORM-laag.</p>
+          <p>Markdown-opmaak wordt correct weergegeven in de chat, en het ontwerp houdt rekening met gebruiksvriendelijkheid op verschillende schermgroottes. Het project legt de nadruk op duidelijke scheiding tussen interface, logica en datalaag.</p>
+
+          <div class="project-images">
+            <img src="Images/widget1.png" alt="Widget 1" onclick="openPopup(this)">
+            <img src="Images/widget2.png" alt="Widget 2" onclick="openPopup(this)">
+            <img src="Images/widget3.png" alt="Widget 3" onclick="openPopup(this)">
+          </div>
+
+          <!-- Popup-container -->
+          <div id="image-popup" class="popup">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <img class="popup-content" id="popup-img" alt="Vergrote afbeelding">
+          </div>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+  const toggleBtn = document.querySelector(".toggle-button");
+  const content = document.querySelector(".collapsible-content");
+
+  toggleBtn.addEventListener("click", () => {
+    content.classList.toggle("open");
+    toggleBtn.textContent = content.classList.contains("open")
+      ? "Over mij ▲"
+      : "Over mij ▼";
+  });
+</script>
+
+</body>
 </html>

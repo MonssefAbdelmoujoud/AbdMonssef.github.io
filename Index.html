@@ -1,34 +1,18 @@
 <!DOCTYPE html>
-<html lang="nl" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mijn Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<script>
-  function openPopup(img) {
-    const popup = document.getElementById("image-popup");
-    const popupImg = document.getElementById("popup-img");
-    popup.style.display = "flex";
-    popupImg.src = img.src;
-  }
-
-  function closePopup() {
-    document.getElementById("image-popup").style.display = "none";
-  }
-
-  // Sluiten met ESC of klik buiten afbeelding
-  window.addEventListener("keydown", function(e) {
-    if (e.key === "Escape") closePopup();
-  });
-
-  document.getElementById("image-popup").addEventListener("click", function(e) {
-    if (e.target.id === "image-popup") closePopup();
-  });
-</script>
-
 <body>
+
+  <!-- Opstart-overlay -->
+  <div id="loader">
+    <div class="loader-message">Welcome to my portfolio :)</div>
+  </div>
+
   <div class="container">
     <aside class="sidebar">
       <img src="Images/Monssef.png" alt="Mijn foto" class="profiel-foto">
@@ -43,14 +27,13 @@
         <a href="https://github.com/MonssefAbdelmoujoud" target="_blank" aria-label="GitHub">
           <img src="Images/github.png" alt="GitHub" class="social-icon" />
         </a>
-</div>
-
+      </div>
     </aside>
 
     <main class="main-content">
       <section>
         <h2>Welkom</h2>
-        <p>Welkom op mijn portfolio</p>
+        <p>Welkom op mijn portfolio!</p>
         <p>Ik ben Monssef Abdelmoujoud, een afgestudeerde student van de graduaatopleiding Programmeren aan Vives Hogeschool in Kortrijk. Met deze website wil ik mezelf voorstellen aan de buitenwereld, werk zoeken, en vooral laten zien waartoe ik in staat ben.</p>
         <p>Ik ben sociaal, leergierig, en ik hou van een goede uitdaging, het is precies dat wat me motiveert om te blijven groeien. De wereld van development is gigantisch, maar ik voel me er thuis. Vooral het werken met API’s vind ik ontzettend boeiend.</p>
       </section>
@@ -63,8 +46,6 @@
           <p>Naast programmeren hou ik van een beetje ontspanning: ik speel graag het kaartenspel Yu-Gi-Oh, ben geïnteresseerd in auto’s, en help af en toe mijn vader in zijn garage. Die combinatie van techniek, creativiteit en plezier typeert wie ik ben.</p>
         </div>
       </section>
-
-
 
       <section>
         <h2>Projecten</h2>
@@ -80,29 +61,67 @@
             <img src="Images/widget2.png" alt="Widget 2" onclick="openPopup(this)">
             <img src="Images/widget3.png" alt="Widget 3" onclick="openPopup(this)">
           </div>
-
-          <!-- Popup-container -->
-          <div id="image-popup" class="popup">
-            <span class="close" onclick="closePopup()">&times;</span>
-            <img class="popup-content" id="popup-img" alt="Vergrote afbeelding">
-          </div>
-
         </div>
       </section>
     </main>
   </div>
 
+  <!-- Popup-container -->
+  <div id="image-popup" class="popup">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <img class="popup-content" id="popup-img" alt="Vergrote afbeelding">
+  </div>
+
   <script>
-  const toggleBtn = document.querySelector(".toggle-button");
-  const content = document.querySelector(".collapsible-content");
+    // Collapsible sectie ("Over mij")
+    const toggleBtn = document.querySelector(".toggle-button");
+    const content = document.querySelector(".collapsible-content");
 
-  toggleBtn.addEventListener("click", () => {
-    content.classList.toggle("open");
-    toggleBtn.textContent = content.classList.contains("open")
-      ? "Over mij ▲"
-      : "Over mij ▼";
-  });
-</script>
+    toggleBtn.addEventListener("click", () => {
+      content.classList.toggle("open");
+      toggleBtn.textContent = content.classList.contains("open")
+        ? "Over mij ▲"
+        : "Over mij ▼";
+    });
 
+    // Afbeelding-popup (lightbox)
+    const popup = document.getElementById("image-popup");
+    const popupImg = document.getElementById("popup-img");
+
+    function openPopup(img) {
+      popup.style.display = "flex";
+      popupImg.src = img.src;
+    }
+
+    function closePopup() {
+      popup.style.display = "none";
+      popupImg.src = "";
+    }
+
+    // Sluit popup bij klik op achtergrond
+    popup.addEventListener("click", function (e) {
+      if (e.target === popup) {
+        closePopup();
+      }
+    });
+
+    // Sluit popup met ESC
+    window.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closePopup();
+      }
+    });
+
+    // Loader fade-out bij start
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      setTimeout(() => {
+        loader.classList.add("fade-out");
+        setTimeout(() => {
+          loader.style.display = "none";
+        }, 1000);
+      }, 1200);
+    });
+  </script>
 </body>
 </html>

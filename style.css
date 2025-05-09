@@ -232,3 +232,32 @@ details.collapsible summary::after {
 .close:hover {
   color: #1e90ff;
 }
+
+/* Fullscreen overlay */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  color: white;
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  transition: opacity 1s ease;
+}
+
+/* Tekst stijl */
+.loader-message {
+  text-align: center;
+}
+
+/* Fade-out klasse */
+#loader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}

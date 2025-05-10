@@ -56,7 +56,7 @@ body {
 /* Hoofdinhoud */
 .main-content {
   flex: 1;
-  padding: 2rem;
+  padding: 2rem 12rem;
 }
 
 section {

@@ -18,15 +18,27 @@
       <img src="Images/Monssef.png" alt="Mijn foto" class="profiel-foto">
       <h1>Monssef Abdelmoujoud</h1>
       <p>Beginnend developer</p>
-      <p><strong>Email:</strong><br><a href="mailto:abd.monssef@gmail.com">abd.monssef@gmail.com</a></p>
+
+      <p><strong>Email:</strong><br>
+        <a href="mailto:abd.monssef@gmail.com">abd.monssef@gmail.com</a>
+      </p>
+
       <p><strong>Links:</strong></p>
       <div class="links">
         <a href="https://www.linkedin.com/in/monssef-abdelmoujoud-312694261/" target="_blank" aria-label="LinkedIn">
-          <img src="Images/linkedin.png" alt="LinkedIn" class="social-icon" />
+          <img src="Images/linkedin_wit.png" alt="LinkedIn" class="social-icon" />
         </a>
         <a href="https://github.com/MonssefAbdelmoujoud" target="_blank" aria-label="GitHub">
-          <img src="Images/github.png" alt="GitHub" class="social-icon" />
+          <img src="Images/github_wit.png" alt="GitHub" class="social-icon" />
         </a>
+      </div>
+
+      <!-- Licht/donker switch met icoon -->
+      <div class="theme-toggle">
+        <input type="checkbox" id="theme-toggle" />
+        <label for="theme-toggle" class="toggle">
+          <span class="toggle-icon" id="toggle-icon">🌙</span>
+        </label>
       </div>
     </aside>
 
@@ -74,55 +86,75 @@
   </div>
 
   <script>
-    // Collapsible sectie ("Over mij")
-    const toggleBtn = document.querySelector(".toggle-button");
-    const content = document.querySelector(".collapsible-content");
+  // Collapsible section
+  const toggleBtn = document.querySelector(".toggle-button");
+  const content = document.querySelector(".collapsible-content");
 
-    toggleBtn.addEventListener("click", () => {
-      content.classList.toggle("open");
-      toggleBtn.textContent = content.classList.contains("open")
-        ? "Over mij ▲"
-        : "Over mij ▼";
-    });
+  toggleBtn.addEventListener("click", () => {
+    content.classList.toggle("open");
+    toggleBtn.textContent = content.classList.contains("open")
+      ? "Over mij ▲"
+      : "Over mij ▼";
+  });
 
-    // Afbeelding-popup (lightbox)
-    const popup = document.getElementById("image-popup");
-    const popupImg = document.getElementById("popup-img");
+  // Image popup
+  const popup = document.getElementById("image-popup");
+  const popupImg = document.getElementById("popup-img");
 
-    function openPopup(img) {
-      popup.style.display = "flex";
-      popupImg.src = img.src;
-    }
+  function openPopup(img) {
+    popup.style.display = "flex";
+    popupImg.src = img.src;
+  }
 
-    function closePopup() {
-      popup.style.display = "none";
-      popupImg.src = "";
-    }
+  function closePopup() {
+    popup.style.display = "none";
+    popupImg.src = "";
+  }
 
-    // Sluit popup bij klik op achtergrond
-    popup.addEventListener("click", function (e) {
-      if (e.target === popup) {
-        closePopup();
-      }
-    });
+  popup.addEventListener("click", function (e) {
+    if (e.target === popup) closePopup();
+  });
 
-    // Sluit popup met ESC
-    window.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") {
-        closePopup();
-      }
-    });
+  window.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closePopup();
+  });
 
-    // Loader fade-out bij start
-    window.addEventListener("load", () => {
-      const loader = document.getElementById("loader");
+  // Loader fade-out
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    setTimeout(() => {
+      loader.classList.add("fade-out");
       setTimeout(() => {
-        loader.classList.add("fade-out");
-        setTimeout(() => {
-          loader.style.display = "none";
-        }, 1000);
-      }, 1200);
-    });
-  </script>
+        loader.style.display = "none";
+      }, 1000);
+    }, 1200);
+  });
+
+  // Theme switch + localStorage
+  const toggle = document.getElementById("theme-toggle");
+  const toggleIcon = document.getElementById("toggle-icon");
+
+  function applyTheme(isLight) {
+    document.documentElement.style.setProperty('--bg-color', isLight ? '#f4f4f4' : '#0d0d0d');
+    document.documentElement.style.setProperty('--text-color', isLight ? '#111' : '#f2f2f2');
+    document.documentElement.style.setProperty('--card-bg', isLight ? '#ffffff' : '#1a1a1a');
+    document.documentElement.style.setProperty('--sidebar-bg', isLight ? '#eaeaea' : '#1a1a1a');
+    document.documentElement.style.setProperty('--accent-color', isLight ? '#ff6600' : '#1e90ff');
+    toggleIcon.textContent = isLight ? '☀️' : '🌙';
+    toggle.checked = isLight;
+  }
+
+  // Init theme from localStorage or default to dark
+  const savedTheme = localStorage.getItem('theme');
+  applyTheme(savedTheme === 'light');
+
+  // On toggle
+  toggle.addEventListener("change", () => {
+    const isLight = toggle.checked;
+    applyTheme(isLight);
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+</script>
+
 </body>
 </html>

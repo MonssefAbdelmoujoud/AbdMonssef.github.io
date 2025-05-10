@@ -1,26 +1,37 @@
-/* Algemeen */
+:root {
+  --bg-color: #0d0d0d;
+  --text-color: #f2f2f2;
+  --card-bg: #1a1a1a;
+  --sidebar-bg: #1a1a1a;
+  --accent-color: #1e90ff;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #0d0d0d;
-  color: #f2f2f2;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Container met sidebar en hoofdinhoud */
 .container {
   display: flex;
   min-height: 100vh;
 }
 
-/* Sidebar */
 .sidebar {
+  background-color: var(--sidebar-bg);
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 280px;
-  background-color: #1a1a1a;
+  height: 100vh;
   padding: 2rem 1rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
 }
 
 .profiel-foto {
@@ -44,7 +55,7 @@ body {
 }
 
 .sidebar a {
-  color: #1e90ff;
+  color: var(--accent-color);
   text-decoration: none;
   word-break: break-word;
 }
@@ -53,9 +64,8 @@ body {
   text-decoration: underline;
 }
 
-/* Hoofdinhoud */
 .main-content {
-  flex: 1;
+  margin-left: 280px;
   padding: 2rem 12rem;
 }
 
@@ -64,14 +74,13 @@ section {
 }
 
 .project {
-  background-color: #1a1a1a;
+  background-color: var(--card-bg);
   padding: 1rem;
   margin-top: 1rem;
-  border-left: 4px solid #1e90ff;
+  border-left: 4px solid var(--accent-color);
   border-radius: 6px;
 }
 
-/* Sociale links met icoontjes */
 .links {
   display: flex;
   gap: 1rem;
@@ -91,12 +100,11 @@ section {
 }
 
 .links .social-icon:hover {
-  background-color: #1e90ff;
+  background-color: var(--accent-color);
 }
 
-/* Collapse animatie via <details> (optioneel) */
 details.collapsible {
-  background-color: #1a1a1a;
+  background-color: var(--card-bg);
   border-radius: 6px;
   padding: 1rem;
   margin-bottom: 2rem;
@@ -140,18 +148,19 @@ details.collapsible summary::after {
   max-height: 1000px;
 }
 
-/* Collapse animatie via JS-knop */
 .collapsible-section {
   margin-bottom: 2rem;
-  background-color: #1a1a1a;
+  background-color: var(--card-bg);
   border-radius: 6px;
   padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .toggle-button {
   background: none;
   border: none;
-  color: #f2f2f2;
+  color: var(--text-color);
   font-size: 1.3rem;
   font-weight: bold;
   cursor: pointer;
@@ -172,7 +181,6 @@ details.collapsible summary::after {
   opacity: 1;
 }
 
-/* Project-afbeeldingen met popup-functionaliteit */
 .project-images {
   display: flex;
   justify-content: space-between;
@@ -191,13 +199,13 @@ details.collapsible summary::after {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   transition: transform 0.2s ease;
+  background-color: var(--card-bg);
 }
 
 .project-images img:hover {
   transform: scale(1.02);
 }
 
-/* Afbeelding-popup (lightbox) */
 .popup {
   display: none;
   position: fixed;
@@ -222,7 +230,7 @@ details.collapsible summary::after {
   position: absolute;
   top: 20px;
   right: 35px;
-  color: #f2f2f2;
+  color: var(--text-color);
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
@@ -230,10 +238,9 @@ details.collapsible summary::after {
 }
 
 .close:hover {
-  color: #1e90ff;
+  color: var(--accent-color);
 }
 
-/* Fullscreen overlay */
 #loader {
   position: fixed;
   top: 0;
@@ -251,13 +258,110 @@ details.collapsible summary::after {
   transition: opacity 1s ease;
 }
 
-/* Tekst stijl */
 .loader-message {
   text-align: center;
 }
 
-/* Fade-out klasse */
 #loader.fade-out {
   opacity: 0;
   pointer-events: none;
+}
+
+.theme-switch {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 2rem;
+}
+
+.switch-label {
+  font-size: 0.85rem;
+  color: var(--text-color);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: background-color 0.4s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #000;
+  border-radius: 50%;
+  transition: transform 0.4s, background-color 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--accent-color);
+}
+
+input:checked + .slider::before {
+  transform: translateX(20px);
+  background-color: white;
+}
+
+
+.theme-toggle {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.toggle {
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  background-color: #ccc;
+  border-radius: 34px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+.toggle-icon {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+#theme-toggle {
+  display: none;
+}
+
+#theme-toggle:checked + .toggle .toggle-icon {
+  transform: translateX(22px);
 }

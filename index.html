@@ -24,7 +24,10 @@
     <aside class="sidebar">
       <img src="Images/Monssef.png" alt="Mijn foto" class="profiel-foto">
       <h1>Monssef Abdelmoujoud</h1>
-      <p>Beginnend developer</p>
+      <p 
+        data-nl="Beginnend developper"
+        data-en="Beginner developper">
+      </p>
 
       <p><strong>Email:</strong><br>
         <a href="mailto:abd.monssef@gmail.com">abd.monssef@gmail.com</a>
@@ -48,16 +51,10 @@
         </label>
       </div>
     </aside>
-
+    <!-- Introduction -->
     <main class="main-content">
       <section>
-        <h2 data-nl="Welkom" data-en="Welcome">Welkom</h2>
-        
-        <p 
-          data-nl="Welkom op mijn portfolio!" 
-          data-en="Welcome to my portfolio!">
-        </p>
-
+        <h2 data-nl="Welkom" data-en="Welcome"></h2>
         <p 
           data-nl="Ik ben Monssef Abdelmoujoud, een afgestudeerde student van de graduaatopleiding Programmeren aan Vives Hogeschool in Kortrijk. Met deze website wil ik mezelf voorstellen aan de buitenwereld, werk zoeken, en vooral laten zien waartoe ik in staat ben." 
           data-en="I am Monssef Abdelmoujoud, a graduate of the Programming associate degree at Vives University of Applied Sciences in Kortrijk. With this website, I want to present myself to the outside world, look for work, and most of all show what I'm capable of.">
@@ -67,9 +64,10 @@
           data-nl="Ik ben sociaal, leergierig, en ik hou van een goede uitdaging, het is precies dat wat me motiveert om te blijven groeien. De wereld van development is gigantisch, maar ik voel me er thuis. Vooral het werken met API’s vind ik ontzettend boeiend." 
           data-en="I’m social, eager to learn, and I enjoy a good challenge — that’s exactly what motivates me to keep growing. The world of development is vast, but I feel at home in it. I especially enjoy working with APIs.">
         </p>
+        
       </section>
 
-
+      <!-- About Me Section -->
       <section class="collapsible-section">
   <button class="toggle-button" 
           data-nl="Over mij ▼" 
@@ -89,10 +87,23 @@
       data-nl="Naast programmeren hou ik van een beetje ontspanning: ik speel graag het kaartenspel Yu-Gi-Oh, ben geïnteresseerd in auto’s, en help af en toe mijn vader in zijn garage. Die combinatie van techniek, creativiteit en plezier typeert wie ik ben." 
       data-en="Besides programming, I enjoy some relaxation: I like playing the Yu-Gi-Oh card game, I'm interested in cars, and I occasionally help my father in his garage. That mix of technology, creativity, and fun defines who I am.">
     </p>
+    <section class="skills-section">
+          <h2 data-nl="Vaardigheden" data-en="Skills"></h2>
+          <ul class="skills-list">
+            <li>HTML / CSS / JavaScript</li>
+            <li>C# / ASP.NET MVC</li>
+            <li>Kotlin / Jetpack Compose</li>
+            <li>SQL / Entity Framework</li>
+            <li>REST API's / OpenAI API</li>
+            <li>Git / GitHub</li>
+            <li>Android Studio / Visual Studio</li>
+          </ul>
+        </section>
+
   </div>
 </section>
       <section>
-        <h2 data-nl="Projecten" data-en="Projects">Projecten</h2>
+        <h2 data-nl="Projecten" data-en="Projects"></h2>
         <!-- Project 1: Chatbot -->
         <div class="project">
           <h3 data-nl="AI-powered FAQ Chatbot Widget" data-en="AI-powered FAQ Chatbot Widget">AI-powered FAQ Chatbot Widget</h3>
@@ -123,7 +134,7 @@
             <img src="Images/widget3.png" alt="Widget 3" onclick="openPopup(this)">
           </div>
         </div>
-
+        <!-- Project 2: DnD -->
         <div class="project">
           <h3 
             data-nl="Dungeons & Dragons Web App voor Dungeon Masters (Passion Project)" 
@@ -163,8 +174,7 @@
             <img src="Images/dnd_3.png" alt="Initiative Tracker Screenshot" onclick="openPopup(this)">
           </div>
         </div>
-
-
+        <!-- Project 3: Car Register -->
         <div class="project">
           <h3 
             data-nl="Car Register App (Passion Project)" 

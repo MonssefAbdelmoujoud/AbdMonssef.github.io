@@ -365,3 +365,29 @@ input:checked + .slider::before {
 #theme-toggle:checked + .toggle .toggle-icon {
   transform: translateX(22px);
 }
+
+.language-switch {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.language-switch button {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.language-switch button:hover {
+  text-decoration: underline;
+}
+
+.language-switch.visible {
+  opacity: 1;
+}

@@ -7,10 +7,17 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  
+
 
   <!-- Opstart-overlay -->
   <div id="loader">
     <div class="loader-message">Welcome to my portfolio :)</div>
+  </div>
+
+  <div class="language-switch">
+   <button onclick="switchLanguage('nl')">🇳🇱 NL</button>
+    <button onclick="switchLanguage('en')">🇬🇧 EN</button>
   </div>
 
   <div class="container">
@@ -44,30 +51,71 @@
 
     <main class="main-content">
       <section>
-        <h2>Welkom</h2>
-        <p>Welkom op mijn portfolio!</p>
-        <p>Ik ben Monssef Abdelmoujoud, een afgestudeerde student van de graduaatopleiding Programmeren aan Vives Hogeschool in Kortrijk. Met deze website wil ik mezelf voorstellen aan de buitenwereld, werk zoeken, en vooral laten zien waartoe ik in staat ben.</p>
-        <p>Ik ben sociaal, leergierig, en ik hou van een goede uitdaging, het is precies dat wat me motiveert om te blijven groeien. De wereld van development is gigantisch, maar ik voel me er thuis. Vooral het werken met API’s vind ik ontzettend boeiend.</p>
+        <h2 data-nl="Welkom" data-en="Welcome">Welkom</h2>
+        
+        <p 
+          data-nl="Welkom op mijn portfolio!" 
+          data-en="Welcome to my portfolio!">
+        </p>
+
+        <p 
+          data-nl="Ik ben Monssef Abdelmoujoud, een afgestudeerde student van de graduaatopleiding Programmeren aan Vives Hogeschool in Kortrijk. Met deze website wil ik mezelf voorstellen aan de buitenwereld, werk zoeken, en vooral laten zien waartoe ik in staat ben." 
+          data-en="I am Monssef Abdelmoujoud, a graduate of the Programming associate degree at Vives University of Applied Sciences in Kortrijk. With this website, I want to present myself to the outside world, look for work, and most of all show what I'm capable of.">
+        </p>
+
+        <p 
+          data-nl="Ik ben sociaal, leergierig, en ik hou van een goede uitdaging, het is precies dat wat me motiveert om te blijven groeien. De wereld van development is gigantisch, maar ik voel me er thuis. Vooral het werken met API’s vind ik ontzettend boeiend." 
+          data-en="I’m social, eager to learn, and I enjoy a good challenge — that’s exactly what motivates me to keep growing. The world of development is vast, but I feel at home in it. I especially enjoy working with APIs.">
+        </p>
       </section>
+
 
       <section class="collapsible-section">
-        <button class="toggle-button">Over mij ▼</button>
-        <div class="collapsible-content">
-          <p>Mijn interesse in programmeren is ontstaan binnen mijn vriendengroep, die vol zit met developers. Aangestoken door hun enthousiasme begon ik via zelfstudie aan Python, waarna ik de overstap maakte naar C#. Sindsdien ben ik niet meer gestopt.</p>
-          <p>Onlangs heb ik mijn eindwerk afgerond voor het laatste jaar van mijn opleiding. Hoewel ik nog niet precies weet welke richting ik op lange termijn wil uitgaan, weet ik wél dat ik ervaring wil opdoen en een steeds betere programmeur wil worden.</p>
-          <p>Naast programmeren hou ik van een beetje ontspanning: ik speel graag het kaartenspel Yu-Gi-Oh, ben geïnteresseerd in auto’s, en help af en toe mijn vader in zijn garage. Die combinatie van techniek, creativiteit en plezier typeert wie ik ben.</p>
-        </div>
-      </section>
+  <button class="toggle-button" 
+          data-nl="Over mij ▼" 
+          data-en="About Me ▼">Over mij ▼</button>
+  <div class="collapsible-content">
+    <p 
+      data-nl="Mijn interesse in programmeren is ontstaan binnen mijn vriendengroep, die vol zit met developers. Aangestoken door hun enthousiasme begon ik via zelfstudie aan Python, waarna ik de overstap maakte naar C#. Sindsdien ben ik niet meer gestopt." 
+      data-en="My interest in programming started within my group of friends, who are all developers. Inspired by their enthusiasm, I began self-studying Python, then transitioned to C#. I haven’t stopped since.">
+    </p>
 
+    <p 
+      data-nl="Onlangs heb ik mijn eindwerk afgerond voor het laatste jaar van mijn opleiding. Hoewel ik nog niet precies weet welke richting ik op lange termijn wil uitgaan, weet ik wél dat ik ervaring wil opdoen en een steeds betere programmeur wil worden." 
+      data-en="I recently completed my final project for the last year of my studies. Although I’m not sure yet which direction I want to take in the long term, I do know I want to gain experience and become a better programmer.">
+    </p>
+
+    <p 
+      data-nl="Naast programmeren hou ik van een beetje ontspanning: ik speel graag het kaartenspel Yu-Gi-Oh, ben geïnteresseerd in auto’s, en help af en toe mijn vader in zijn garage. Die combinatie van techniek, creativiteit en plezier typeert wie ik ben." 
+      data-en="Besides programming, I enjoy some relaxation: I like playing the Yu-Gi-Oh card game, I'm interested in cars, and I occasionally help my father in his garage. That mix of technology, creativity, and fun defines who I am.">
+    </p>
+  </div>
+</section>
       <section>
-        <h2>Projecten</h2>
+        <h2 data-nl="Projecten" data-en="Projects">Projecten</h2>
+        <!-- Project 1: Chatbot -->
         <div class="project">
-          <h3>AI-powered FAQ Chatbot Widget</h3>
-          <p>Deze chatbot widget werd ontwikkeld tijdens mijn stage bij Flagstone en biedt gebruikers een slimme manier om veelgestelde vragen (FAQ) te raadplegen of eigen vragen te stellen via een AI-assistent.</p>
-          <p>De front-end werd opgebouwd met HTML, CSS en JavaScript (zonder frameworks) en bevat een responsieve, zwevende interface met live zoekfiltering, dynamische DOM-updates en vloeiende overgangen.</p>
-          <p>De back-end is ontwikkeld in ASP.NET Core Web API, waarbij FAQ-data wordt opgehaald en gebruikersvragen doorgestuurd worden naar de OpenAI API voor AI-gegenereerde antwoorden. De widget leest gegevens uit een SQL Server-database, met Entity Framework Core als ORM-laag.</p>
-          <p>Markdown-opmaak wordt correct weergegeven in de chat, en het ontwerp houdt rekening met gebruiksvriendelijkheid op verschillende schermgroottes. Het project legt de nadruk op duidelijke scheiding tussen interface, logica en datalaag.</p>
-          <p><strong>Gebruikte technologieën:</strong> HTML, CSS, JavaScript, ASP.NET, Entity Framework Core, SQL Server, OpenAI API, JSON + Rest API, Visual Studio (Code), Git</p>
+          <h3 data-nl="AI-powered FAQ Chatbot Widget" data-en="AI-powered FAQ Chatbot Widget">AI-powered FAQ Chatbot Widget</h3>
+
+          <p data-nl="Deze chatbot widget werd ontwikkeld tijdens mijn stage bij Flagstone en biedt gebruikers een slimme manier om veelgestelde vragen (FAQ) te raadplegen of eigen vragen te stellen via een AI-assistent."
+            data-en="This chatbot widget was developed during my internship at Flagstone and offers users a smart way to browse frequently asked questions (FAQs) or ask their own via an AI assistant.">
+          </p>
+
+          <p data-nl="De front-end werd opgebouwd met HTML, CSS en JavaScript (zonder frameworks) en bevat een responsieve, zwevende interface met live zoekfiltering, dynamische DOM-updates en vloeiende overgangen."
+            data-en="The front end was built with HTML, CSS, and JavaScript (no frameworks) and features a responsive floating interface with live filtering, dynamic DOM updates, and smooth transitions.">
+          </p>
+
+          <p data-nl="De back-end is ontwikkeld in ASP.NET Core Web API, waarbij FAQ-data wordt opgehaald en gebruikersvragen doorgestuurd worden naar de OpenAI API voor AI-gegenereerde antwoorden. De widget leest gegevens uit een SQL Server-database, met Entity Framework Core als ORM-laag."
+            data-en="The back end was built in ASP.NET Core Web API. FAQ data is fetched and user questions are sent to the OpenAI API for AI-generated answers. The widget reads from a SQL Server database using Entity Framework Core.">
+          </p>
+
+          <p data-nl="Markdown-opmaak wordt correct weergegeven in de chat, en het ontwerp houdt rekening met gebruiksvriendelijkheid op verschillende schermgroottes. Het project legt de nadruk op duidelijke scheiding tussen interface, logica en datalaag."
+            data-en="Markdown formatting is rendered correctly in the chat, and the design is responsive across screen sizes. The project emphasizes a clear separation between interface, logic, and data layers.">
+          </p>
+
+          <p data-nl="<strong>Gebruikte technologieën:</strong> HTML, CSS, JavaScript, ASP.NET, Entity Framework Core, SQL Server, OpenAI API, JSON + Rest API, Visual Studio (Code), Git"
+            data-en="<strong>Technologies used:</strong> HTML, CSS, JavaScript, ASP.NET, Entity Framework Core, SQL Server, OpenAI API, JSON + Rest API, Visual Studio (Code), Git">
+          </p>
 
           <div class="project-images">
             <img src="Images/widget1.png" alt="Widget 1" onclick="openPopup(this)">
@@ -77,14 +125,37 @@
         </div>
 
         <div class="project">
-          <h3>Dungeons & Dragons Web App voor Dungeon Masters (Passion Project)</h3>
-          <p>Dit passion project is een webapplicatie speciaal ontwikkeld voor Dungeon Masters, gebouwd met ASP.NET MVC in C#. De applicatie centraliseert meerdere nuttige tools voor het beheren van D&D-sessies in realtime:</p>
+          <h3 
+            data-nl="Dungeons & Dragons Web App voor Dungeon Masters (Passion Project)" 
+            data-en="Dungeons & Dragons Web App for Dungeon Masters (Passion Project)">
+          </h3>
+
+          <p 
+            data-nl="Dit passion project is een webapplicatie speciaal ontwikkeld voor Dungeon Masters, gebouwd met ASP.NET MVC in C#. De applicatie centraliseert meerdere nuttige tools voor het beheren van D&D-sessies in realtime:" 
+            data-en="This passion project is a web application specifically developed for Dungeon Masters, built using ASP.NET MVC in C#. It combines multiple useful tools to help manage D&D sessions in real time.">
+          </p>
+
           <ul>
-            <li><strong>Dice Roll Pagina</strong> – intuïtieve interface voor het rollen van dobbelstenen (D4, D6, D8, D20, ...), met modifiers en optellingen.</li>
-            <li><strong>Monster Manual</strong> – toont automatisch monsters uit de D&D 5e API (https://www.dnd5eapi.co/) met naam, eigenschappen en beschrijvingen.</li>
-            <li><strong>Initiative Tracker</strong> – volg de beurtvolgorde van spelers en vijanden, inclusief real-time HP-tracking en statweergave.</li>
+            <li 
+              data-nl="<strong>Dice Roll Pagina</strong> – intuïtieve interface voor het rollen van dobbelstenen (D4, D6, D8, D20, ...), met modifiers en optellingen." 
+              data-en="<strong>Dice Roll Page</strong> – intuitive interface for rolling dice (D4, D6, D8, D20, etc.), with modifiers and summation.">
+            </li>
+
+            <li 
+              data-nl="<strong>Monster Manual</strong> – toont automatisch monsters uit de D&D 5e API (https://www.dnd5eapi.co/) met naam, eigenschappen en beschrijvingen." 
+              data-en="<strong>Monster Manual</strong> – automatically displays monsters from the D&D 5e API (https://www.dnd5eapi.co/) including names, traits, and descriptions.">
+            </li>
+
+            <li 
+              data-nl="<strong>Initiative Tracker</strong> – volg de beurtvolgorde van spelers en vijanden, inclusief real-time HP-tracking en statweergave." 
+              data-en="<strong>Initiative Tracker</strong> – track turn order of players and enemies, including real-time HP and stat display.">
+            </li>
           </ul>
-          <p><strong>Gebruikte technologieën:</strong> ASP.NET MVC, C#, REST API (D&D 5e), HTML, CSS, JavaScript</p>
+
+          <p 
+            data-nl="<strong>Gebruikte technologieën:</strong> ASP.NET MVC, C#, REST API (D&D 5e), HTML, CSS, JavaScript" 
+            data-en="<strong>Technologies used:</strong> ASP.NET MVC, C#, REST API (D&D 5e), HTML, CSS, JavaScript">
+          </p>
 
           <div class="project-images">
             <img src="Images/dnd_1.png" alt="Dice Roller Screenshot" onclick="openPopup(this)">
@@ -93,18 +164,39 @@
           </div>
         </div>
 
+
         <div class="project">
-          <h3>Car Register App (Passion Project)</h3>
-          <p>Deze Android-app werd ontwikkeld als passieproject om herstellingen in de garage van mijn vader beter te organiseren en tegelijk mijn vaardigheden in Android- en Kotlin-ontwikkeling te verbeteren.</p>
-          <p>De app laat gebruikers toe om voertuigen te registreren met informatie zoals merk/model, kilometerstand, chassisnummer en uitgevoerde werken. Gebruikers kunnen ook meerdere foto's toevoegen per voertuig, deze lokaal opslaan en ze delen via WhatsApp – inclusief tekst en afbeeldingen. De app bevat een overzichtsscherm met een lijst van alle geregistreerde voertuigen en een detailscherm waar bestaande gegevens aangepast kunnen worden.</p>
-          <p>De gegevens worden lokaal opgeslagen in JSON-formaat op het toestel, waardoor de app volledig offline werkt en snel reageert.</p>
-          <p><strong>Gebruikte technologieën:</strong> Kotlin, Jetpack Compose, Android SDK, Intent API, JSON-opslag, Android FileProvider, WhatsApp intent integratie, Android Studio</p>
+          <h3 
+            data-nl="Car Register App (Passion Project)" 
+            data-en="Car Register App (Passion Project)">
+          </h3>
+
+          <p 
+            data-nl="Deze Android-app werd ontwikkeld als passieproject om herstellingen in de garage van mijn vader beter te organiseren en tegelijk mijn vaardigheden in Android- en Kotlin-ontwikkeling te verbeteren." 
+            data-en="This Android app was developed as a passion project to help organize repairs in my father’s garage and to improve my skills in Android and Kotlin development.">
+          </p>
+
+          <p 
+            data-nl="De app laat gebruikers toe om voertuigen te registreren met informatie zoals merk/model, kilometerstand, chassisnummer en uitgevoerde werken. Gebruikers kunnen ook meerdere foto's toevoegen per voertuig, deze lokaal opslaan en ze delen via WhatsApp – inclusief tekst en afbeeldingen. De app bevat een overzichtsscherm met een lijst van alle geregistreerde voertuigen en een detailscherm waar bestaande gegevens aangepast kunnen worden." 
+            data-en="The app allows users to register vehicles with details such as brand/model, mileage, VIN, and repairs performed. Users can also add multiple photos per vehicle, save them locally, and share them via WhatsApp — including both text and images. The app features an overview screen listing all registered vehicles and a detail screen for editing existing entries.">
+          </p>
+
+          <p 
+            data-nl="De gegevens worden lokaal opgeslagen in JSON-formaat op het toestel, waardoor de app volledig offline werkt en snel reageert." 
+            data-en="All data is stored locally in JSON format on the device, allowing the app to function entirely offline and respond quickly.">
+          </p>
+
+          <p 
+            data-nl="<strong>Gebruikte technologieën:</strong> Kotlin, Jetpack Compose, Android SDK, Intent API, JSON-opslag, Android FileProvider, WhatsApp intent integratie, Android Studio" 
+            data-en="<strong>Technologies used:</strong> Kotlin, Jetpack Compose, Android SDK, Intent API, JSON storage, Android FileProvider, WhatsApp intent integration, Android Studio">
+          </p>
 
           <div class="project-images">
             <img src="Images/car_register_1.jpg" alt="Screenshot In App" onclick="openPopup(this)">
             <img src="Images/car_register_2.png" alt="Screenshot Result Sent Whatsapp" onclick="openPopup(this)">
           </div>
         </div>
+
 
       </section>
     </main>
@@ -155,6 +247,7 @@
     const loader = document.getElementById("loader");
     setTimeout(() => {
       loader.classList.add("fade-out");
+      document.querySelector(".language-switch")?.classList.add("visible");
       setTimeout(() => {
         loader.style.display = "none";
       }, 1000);
@@ -185,6 +278,26 @@
     applyTheme(isLight);
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
   });
+
+
+  // Language toggle logica
+  function switchLanguage(lang) {
+  const translatableElements = document.querySelectorAll('[data-en]');
+
+  translatableElements.forEach(el => {
+    const newText = el.getAttribute(`data-${lang}`);
+    if (newText) {
+      el.innerHTML = newText;
+    }
+  });
+
+  document.documentElement.setAttribute('lang', lang);
+  localStorage.setItem('lang', lang);
+}
+// Apply saved or default language on page load
+const savedLang = localStorage.getItem('lang') || 'nl';
+switchLanguage(savedLang);
+
 </script>
 
 </body>
